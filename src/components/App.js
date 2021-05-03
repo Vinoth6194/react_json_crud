@@ -14,7 +14,7 @@ function App() {
   };
 
   //*Delete functionality
-  const removeHandler = id => {
+  const removeContactHandler = id => {
     const newContactList = contacts.filter(contact => {
       return contact.id !== id;
     });
@@ -46,7 +46,7 @@ function App() {
     <div className="ui container">
       <Header />
       <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} getContactId={removeContactHandler} />
     </div>
   );
 }
