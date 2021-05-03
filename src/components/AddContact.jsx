@@ -18,6 +18,10 @@ export class AddContact extends Component {
     this.props.addContactHandler(this.state);
     console.log('From the form');
     console.log(this.state);
+    this.setState({
+      name: '',
+      email: '',
+    });
   };
 
   render() {
