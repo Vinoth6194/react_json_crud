@@ -15,6 +15,8 @@ export class AddContact extends Component {
       alert('Should not be empty');
       return;
     }
+    this.props.addContactHandler(this.state);
+    console.log('From the form');
     console.log(this.state);
   };
 

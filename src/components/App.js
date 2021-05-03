@@ -6,6 +6,10 @@ import Header from './Header';
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  const addContactHandler = contact => {
+    console.log('From App.js');
+    console.log(contact);
+  };
   // const contacts = [
   //   {
   //     id: '1',
@@ -21,7 +25,7 @@ function App() {
   return (
     <div className="ui container">
       <Header />
-      <AddContact />
+      <AddContact addContactHandler={addContactHandler} />
       {/* <ContactList contacts={contacts} /> */}
     </div>
   );
