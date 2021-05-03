@@ -11,6 +11,10 @@ export class AddContact extends Component {
 
   add = e => {
     e.preventDefault();
+    if (this.state.name === '' && this.state.email === '') {
+      alert('Should not be empty');
+      return;
+    }
     console.log(this.state);
   };
 
