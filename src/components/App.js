@@ -9,6 +9,7 @@ function App() {
   const addContactHandler = contact => {
     console.log('From App.js');
     console.log(contact);
+    setContacts([...contacts, contact]);
   };
   // const contacts = [
   //   {
@@ -26,7 +27,7 @@ function App() {
     <div className="ui container">
       <Header />
       <AddContact addContactHandler={addContactHandler} />
-      {/* <ContactList contacts={contacts} /> */}
+      <ContactList contacts={contacts} />
     </div>
   );
 }
