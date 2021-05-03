@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddContact from './AddContact';
 import './App.css';
 import ContactList from './ContactList';
 import Header from './Header';
 
 function App() {
+  const LOCAL_STORAGE_KEY = 'contacts';
   const [contacts, setContacts] = useState([]);
   const addContactHandler = contact => {
     console.log('From App.js');
     console.log(contact);
     setContacts([...contacts, contact]);
   };
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+  }, [contacts]);
+
   // const contacts = [
   //   {
   //     id: '1',
