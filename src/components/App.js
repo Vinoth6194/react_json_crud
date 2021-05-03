@@ -22,7 +22,7 @@ function App() {
     <div className="ui container">
       <Header />
       <AddContact />
-      <ContactList contacts={contacts} />
+      {/* <ContactList contacts={contacts} /> */}
     </div>
   );
 }
