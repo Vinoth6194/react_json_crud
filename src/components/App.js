@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="ui container">
       <Header />
-      {/* <AddContact />
-      <ContactList /> */}
+      <AddContact />
+      {/* <ContactList /> */}
     </div>
   );
 }
