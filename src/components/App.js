@@ -45,6 +45,8 @@ function App() {
   // ];
   return (
     <div className="ui container">
+      //*{' '}
+      {/* passing the props in arrow fun with component prop in router leads to execcution of anonymous fun every time thus leading to perfomance issue */}
       <Router>
         <Header />
         <Switch>
