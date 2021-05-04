@@ -52,15 +52,16 @@ function App() {
         <Switch>
           <Route
             path="/add"
-            component={() => (
-              <AddContact addContactHandler={addContactHandler} />
+            render={props => (
+              <AddContact {...props} addContactHandler={addContactHandler} />
             )}
           />
           <Route
             path="/"
             exact
-            component={() => (
+            render={props => (
               <ContactList
+                {...props}
                 contacts={contacts}
                 getContactId={removeContactHandler}
               />
