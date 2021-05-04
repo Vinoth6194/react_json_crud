@@ -14,12 +14,18 @@ function ContactCard(props) {
           <div>{email}</div>
         </Link>
       </div>
-      <Link to="/delete">
-        <i
-          className="trash alternate outline icon"
-          style={{ color: 'red', marginTop: '7px' }}
-        ></i>
-      </Link>
+      {/* <Link to="/delete"> */}
+      <i
+        className="trash alternate outline icon"
+        style={{ color: 'red', marginTop: '7px' }}
+        onClick={() => {
+          const confirm = window.confirm('You Sure');
+          if (confirm === true) {
+            props.clickHandler(id);
+          }
+        }}
+      ></i>
+      {/* </Link> */}
     </div>
   );
 }
