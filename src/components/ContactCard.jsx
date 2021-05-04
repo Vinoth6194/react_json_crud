@@ -19,7 +19,7 @@ function ContactCard(props) {
         className="trash alternate outline icon"
         style={{ color: 'red', marginTop: '7px' }}
         onClick={() => {
-          const confirm = window.confirm('You Sure');
+          const confirm = window.confirm(`You Sure to delete : ${name} ?`);
           if (confirm === true) {
             props.clickHandler(id);
           }
