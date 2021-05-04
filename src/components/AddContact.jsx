@@ -22,6 +22,8 @@ export class AddContact extends Component {
       name: '',
       email: '',
     });
+    console.log('Props from AddContact');
+    console.log(this.props);
   };
 
   render() {
