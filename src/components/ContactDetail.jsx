@@ -1,6 +1,9 @@
 import React from 'react';
 import user from '../images/user.jpg';
-function ContactDetail() {
+function ContactDetail(props) {
+  console.log('ContactDetails props');
+  console.log(props);
+
   return (
     <div className="main">
       <div className="ui card centered">
