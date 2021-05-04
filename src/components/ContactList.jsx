@@ -5,6 +5,13 @@ const ContactList = props => {
   console.log('ContactList Props');
   console.log(props);
 
+  const contacts = [
+    {
+      id: '1',
+      name: 'Dummy',
+      email: 'Dummy@gmail.com',
+    },
+  ];
   //* asigned the delete func prop
   const deleteContactHandler = id => {
     props.getContactId(id);
@@ -12,13 +19,16 @@ const ContactList = props => {
   // const renderContactList = props.contacts.map(contact => {
   //   return <ContactCard contact={contact} />;
   // });
-  const renderContactList = props.contacts.map(contact => {
+  const renderContactList = contacts.map(contact => {
     return (
-      <ContactCard
-        contact={contact}
-        clickHandler={deleteContactHandler}
-        key={contact.id}
-      />
+      <>
+        <h2 c>Contacts List</h2>
+        <ContactCard
+          contact={contact}
+          clickHandler={deleteContactHandler}
+          key={contact.id}
+        />
+      </>
     );
   });
 
