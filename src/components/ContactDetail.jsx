@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import user from '../images/user.jpg';
 function ContactDetail(props) {
   console.log('ContactDetails props');
@@ -14,6 +15,13 @@ function ContactDetail(props) {
           <div className="header">{name}</div>
           <div className="description">{email}</div>
         </div>
+      </div>
+      <div className="center-div">
+        <Link to="/">
+          <button className="ui button blue center">
+            Back to Contact List
+          </button>
+        </Link>
       </div>
     </div>
   );
