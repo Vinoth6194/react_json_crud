@@ -24,6 +24,7 @@ export class AddContact extends Component {
     });
     console.log('Props from AddContact');
     console.log(this.props);
+    this.props.history.push('/');
   };
 
   render() {
