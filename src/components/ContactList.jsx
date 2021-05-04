@@ -21,18 +21,23 @@ const ContactList = props => {
   // });
   const renderContactList = contacts.map(contact => {
     return (
-      <>
-        <h2 c>Contacts List</h2>
-        <ContactCard
-          contact={contact}
-          clickHandler={deleteContactHandler}
-          key={contact.id}
-        />
-      </>
+      <ContactCard
+        contact={contact}
+        clickHandler={deleteContactHandler}
+        key={contact.id}
+      />
     );
   });
 
-  return <div className="ui celled list">{renderContactList}</div>;
+  return (
+    <div className="main">
+      <h2>
+        Contacts List
+        <button className="ui button blue right">Add Contact</button>
+      </h2>
+      <div className="ui celled list">{renderContactList}</div>
+    </div>
+  );
 };
 
 export default ContactList;

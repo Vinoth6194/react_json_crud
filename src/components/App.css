@@ -15,3 +15,9 @@ i.icon {
   font-size: 20px;
   cursor: pointer;
 }
+.right {
+  float: right !important;
+}
+.center-div {
+  text-align: center;
+}
