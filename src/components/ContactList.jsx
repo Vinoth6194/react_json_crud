@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactCard from './ContactCard';
-
+import { Link } from 'react-router-dom';
 const ContactList = props => {
   console.log('ContactList Props');
   console.log(props);
@@ -33,7 +33,9 @@ const ContactList = props => {
     <div className="main">
       <h2>
         Contacts List
-        <button className="ui button blue right">Add Contact</button>
+        <Link to="/add">
+          <button className="ui button blue right">Add Contact</button>
+        </Link>
       </h2>
       <div className="ui celled list">{renderContactList}</div>
     </div>
