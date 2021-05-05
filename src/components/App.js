@@ -41,6 +41,12 @@ function App() {
   const updateContactHandler = async contact => {
     const response = await api.put(`/contacts/${contact.id}`, contact);
     const { id, name, email } = response.data;
+    //*checks ehther the id in the array is same as that of the one trying to update? new data from response: old date in the array
+    setContacts(
+      contacts.map(contact => {
+        return contact.id === id ? { ...response.data } : contact;
+      })
+    );
   };
 
   //*Delete functionality
