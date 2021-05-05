@@ -71,7 +71,9 @@ function App() {
     console.log(newContactList);
   };
 
-  const searchHandler = () => {};
+  const searchHandler = searchTerm => {
+    setSearchTerm(searchTerm);
+  };
 
   // useEffect(() => {
   //   const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
