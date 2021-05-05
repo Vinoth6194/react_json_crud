@@ -73,6 +73,12 @@ function App() {
 
   const searchHandler = searchTerm => {
     setSearchTerm(searchTerm);
+    if (searchTerm !== '') {
+      const newContactList = contacts.filter(contact => {
+        console.log('Values of the Contact Object,NOT KEYS');
+        console.log(Object.values(contact));
+      });
+    }
   };
 
   // useEffect(() => {
