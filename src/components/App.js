@@ -37,7 +37,18 @@ function App() {
   };
 
   //*Delete functionality
-  const removeContactHandler = id => {
+  // const removeContactHandler = id => {
+  //   const newContactList = contacts.filter(contact => {
+  //     return contact.id !== id;
+  //   });
+  //   setContacts(newContactList);
+  //   console.log('NewList');
+  //   console.log(newContactList);
+  // };
+
+  //*Delete from api
+  const removeContactHandler = async id => {
+    await api.delete(`/contacts/${id}`);
     const newContactList = contacts.filter(contact => {
       return contact.id !== id;
     });
@@ -45,6 +56,7 @@ function App() {
     console.log('NewList');
     console.log(newContactList);
   };
+
   // useEffect(() => {
   //   const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
   //   if (retriveContacts) setContacts(retriveContacts);
