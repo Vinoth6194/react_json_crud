@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 export class EditContact extends Component {
   constructor(props) {
     super(props);
+    const { id, name, email } = props.location.state.contact;
     this.state = {
-      name: '',
-      email: '',
+      id: id,
+      name: name,
+      email: email,
     };
   }
 
-  add = e => {
+  update = e => {
     e.preventDefault();
     if (this.state.name === '' && this.state.email === '') {
       alert('Should not be empty');
@@ -30,8 +32,8 @@ export class EditContact extends Component {
   render() {
     return (
       <div className="ui main">
-        <h2>Add Contact</h2>
-        <form className="ui form" onSubmit={this.add}>
+        <h2>Edit Contact</h2>
+        <form className="ui form" onSubmit={this.update}>
           <div className="field">
             <label>Name</label>
             <input
