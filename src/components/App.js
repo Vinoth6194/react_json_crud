@@ -12,6 +12,8 @@ function App() {
   // const LOCAL_STORAGE_KEY = 'contacts';
   const [contacts, setContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
   // const addContactHandler = contact => {
   //   console.log('From App.js');
   //   console.log(contact);
@@ -77,7 +79,14 @@ function App() {
       const newContactList = contacts.filter(contact => {
         console.log('Values of the Contact Object,NOT KEYS');
         console.log(Object.values(contact));
+        return Object.values(contact)
+          .join(' ')
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
       });
+      setSearchResults(newContactList);
+    } else {
+      setSearchResults(contacts);
     }
   };
 
@@ -129,7 +138,7 @@ function App() {
             render={props => (
               <ContactList
                 {...props}
-                contacts={contacts}
+                contacts={searchTerm.length < 1 ? contacts : searchResults}
                 getContactId={removeContactHandler}
                 term={searchTerm}
                 searchKeyword={searchHandler}
