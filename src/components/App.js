@@ -11,6 +11,7 @@ import EditContact from './EditContact';
 function App() {
   // const LOCAL_STORAGE_KEY = 'contacts';
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   // const addContactHandler = contact => {
   //   console.log('From App.js');
   //   console.log(contact);
@@ -70,6 +71,8 @@ function App() {
     console.log(newContactList);
   };
 
+  const searchHandler = () => {};
+
   // useEffect(() => {
   //   const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
   //   if (retriveContacts) setContacts(retriveContacts);
@@ -120,6 +123,8 @@ function App() {
                 {...props}
                 contacts={contacts}
                 getContactId={removeContactHandler}
+                term={searchTerm}
+                searchKeyword={searchHandler}
               />
             )}
           />
