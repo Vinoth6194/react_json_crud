@@ -8,13 +8,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ContactDetail from './ContactDetail';
 import api from '../api/contacts';
 function App() {
-  const LOCAL_STORAGE_KEY = 'contacts';
+  // const LOCAL_STORAGE_KEY = 'contacts';
   const [contacts, setContacts] = useState([]);
-  const addContactHandler = contact => {
-    console.log('From App.js');
-    console.log(contact);
-    setContacts([...contacts, { id: uuid(), ...contact }]);
-  };
+  // const addContactHandler = contact => {
+  //   console.log('From App.js');
+  //   console.log(contact);
+  //   setContacts([...contacts, { id: uuid(), ...contact }]);
+  // };
 
   //*retrieve contacts from api
   const retriveContacts = async () => {
@@ -22,6 +22,18 @@ function App() {
     console.log('Response from API');
     console.log(response);
     return response.data;
+  };
+
+  //* Add contacts to the api
+  const addContactHandler = async contact => {
+    console.log('Data to be added to the api');
+    console.log(contact);
+    const request = {
+      id: uuid(),
+      ...contact,
+    };
+    const response = await api.post('/contacts', request);
+    setContacts([...contacts, response.data]);
   };
 
   //*Delete functionality
