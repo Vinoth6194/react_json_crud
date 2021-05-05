@@ -40,6 +40,7 @@ function App() {
   //*update using  api
   const updateContactHandler = async contact => {
     const response = await api.put(`/contacts/${contact.id}`, contact);
+    const { id, name, email } = response.data;
   };
 
   //*Delete functionality
