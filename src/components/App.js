@@ -7,6 +7,7 @@ import { uuid } from 'uuidv4';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ContactDetail from './ContactDetail';
 import api from '../api/contacts';
+import EditContact from './EditContact';
 function App() {
   // const LOCAL_STORAGE_KEY = 'contacts';
   const [contacts, setContacts] = useState([]);
@@ -34,6 +35,11 @@ function App() {
     };
     const response = await api.post('/contacts', request);
     setContacts([...contacts, response.data]);
+  };
+
+  //*update using  api
+  const updateContactHandler = async contact => {
+    const response = await api.put(`/contacts/${contact.id}`, contact);
   };
 
   //*Delete functionality
@@ -112,6 +118,15 @@ function App() {
           />
 
           <Route path="/contact/:id" component={ContactDetail}></Route>
+          <Route
+            path="/edit"
+            render={props => (
+              <EditContact
+                {...props}
+                updateContactHandler={updateContactHandler}
+              />
+            )}
+          />
         </Switch>
 
         {/* <AddContact addContactHandler={addContactHandler} />

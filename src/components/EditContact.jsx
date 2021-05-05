@@ -17,7 +17,7 @@ export class EditContact extends Component {
       alert('Should not be empty');
       return;
     }
-    this.props.addContactHandler(this.state);
+    this.props.updateContactHandler(this.state);
     console.log('From the form');
     console.log(this.state);
     this.setState({
@@ -54,7 +54,7 @@ export class EditContact extends Component {
               onChange={e => this.setState({ email: e.target.value })}
             />
           </div>
-          <button className="ui button blue">Add</button>
+          <button className="ui button green">Update</button>
         </form>
       </div>
     );
