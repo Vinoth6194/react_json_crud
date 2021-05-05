@@ -57,7 +57,11 @@ const ContactList = props => {
           <i className="search icon"></i>
         </div>
       </div>
-      <div className="ui celled list">{renderContactList}</div>
+      <div className="ui celled list">
+        {renderContactList.length > 0
+          ? renderContactList
+          : 'No contacts based on your search'}
+      </div>
     </div>
   );
 };

@@ -89,7 +89,10 @@ function App() {
       setSearchResults(contacts);
     }
   };
-
+  console.log('Initial in Contacts Array');
+  console.log(contacts);
+  console.log('SearchResults array');
+  console.log(searchResults);
   // useEffect(() => {
   //   const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
   //   if (retriveContacts) setContacts(retriveContacts);
