@@ -16,6 +16,7 @@ const ContactList = props => {
   const getSearchKeyword = () => {
     console.log('Search input');
     console.log(inputEl.current.value);
+    props.searchKeyword(inputEl.current.value);
   };
 
   //* asigned the delete func prop
