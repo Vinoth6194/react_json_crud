@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ContactCard from './ContactCard';
 import { Link } from 'react-router-dom';
 const ContactList = props => {
   console.log('ContactList Props');
   console.log(props);
-
+  const inputEl = useRef('');
   // const contacts = [
   //   {
   //     id: '1',
@@ -12,6 +12,12 @@ const ContactList = props => {
   //     email: 'Dummy@gmail.com',
   //   },
   // ];
+
+  const getSearchKeyword = () => {
+    console.log('Search input');
+    console.log(inputEl.current.value);
+  };
+
   //* asigned the delete func prop
   const deleteContactHandler = id => {
     props.getContactId(id);
@@ -43,6 +49,9 @@ const ContactList = props => {
             type="text"
             placeholder="Search Contacts"
             className="prompt"
+            ref={inputEl}
+            onChange={getSearchKeyword}
+            value={props.term}
           ></input>
           <i className="search icon"></i>
         </div>
