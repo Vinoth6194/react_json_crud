@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 
 export class AddContact extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ export class AddContact extends Component {
   add = e => {
     e.preventDefault();
     if (this.state.name === '' && this.state.email === '') {
-      alert('Should not be empty');
+      // alert('Should not be empty');
+      toast.warn('Should not be empty');
       return;
     }
     this.props.addContactHandler(this.state);
