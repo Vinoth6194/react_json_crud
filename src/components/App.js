@@ -8,6 +8,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ContactDetail from './ContactDetail';
 import api from '../api/contacts';
 import EditContact from './EditContact';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   // const LOCAL_STORAGE_KEY = 'contacts';
   const [contacts, setContacts] = useState([]);
@@ -38,6 +41,7 @@ function App() {
     };
     const response = await api.post('/contacts', request);
     setContacts([...contacts, response.data]);
+    toast.info('Added Successfully');
   };
 
   //*update using  api
@@ -50,6 +54,7 @@ function App() {
         return contact.id === id ? { ...response.data } : contact;
       })
     );
+    toast.success('Updated Successfully');
   };
 
   //*Delete functionality
@@ -71,6 +76,7 @@ function App() {
     setContacts(newContactList);
     console.log('NewList');
     console.log(newContactList);
+    toast.error('Deleted Successfully');
   };
 
   const searchHandler = searchTerm => {
@@ -124,10 +130,12 @@ function App() {
   // ];
   return (
     <div className="ui container">
-      //*{' '}
+      <ToastContainer position="bottom-right" />
+
       {/* passing the props in arrow fun with component prop in router leads to execcution of anonymous fun every time thus leading to perfomance issue */}
       <Router>
         <Header />
+
         <Switch>
           <Route
             path="/add"
